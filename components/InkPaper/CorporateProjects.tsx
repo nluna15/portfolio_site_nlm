@@ -42,14 +42,14 @@ export function CorporateRow({ project }: { project: ProjectItem }) {
 export function CorporateProjects() {
   return (
     <section
-      id="work-corporate"
+      id="work"
       className={classes.corporate}
       data-screen-label="Work — Selected Product Work"
     >
       <div className={classes.workInner}>
         <div className={`${classes.sectionHead} ${classes.sectionHeadRuled} ${classes.corporateHead}`}>
           <h2 className={`${classes.sectionTitle} ${classes.sectionTitleSm}`}>Selected Product Work</h2>
-          <span className={`${classes.kicker} ${classes.kickerNavy}`}>02 — Selected Product Work</span>
+          <span className={`${classes.kicker} ${classes.kickerNavy}`}>01 — Selected Product Work</span>
         </div>
 
         <div className={classes.rows}>

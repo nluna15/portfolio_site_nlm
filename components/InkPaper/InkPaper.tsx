@@ -27,8 +27,8 @@ export function InkPaper({
         <Hero />
         <NowBar reading={reading} watching={watching} />
         <WhatIDo />
-        <AiProjects />
         <CorporateProjects />
+        <AiProjects />
         <WritingSection articles={writingArticles} />
         <AboutSection />
         <SiteFooter />

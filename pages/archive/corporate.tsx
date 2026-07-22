@@ -14,7 +14,7 @@ export default function CorporateArchivePage() {
         title="Selected Product Work"
         kicker="Archive — Selected Product Work"
         intro="Product work across travel marketplaces, generative AI, social infrastructure, and internal operations. Select any project to read the full story."
-        backHref="/#work-corporate"
+        backHref="/#work"
         backLabel="Back to home"
       >
         <div className={classes.rows}>

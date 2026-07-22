@@ -18,7 +18,7 @@ export default function AiArchivePage() {
         title="AI Projects"
         kicker="Archive — Building with AI"
         intro="Things I've built by vibe-coding with AI agents — a World Cup lineup builder, a daily player-guessing game, a dog-walking app, an interview simulator, a Hollywood agent game, and a model-comparison tool. Select any project to read the full story."
-        backHref="/#work"
+        backHref="/#work-ai"
         backLabel="Back to home"
       >
         <div className={classes.archiveGrid}>

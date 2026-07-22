@@ -12,11 +12,11 @@ export function AiProjects() {
   const { openProject } = useProjectModal();
 
   return (
-    <section id="work" className={classes.work} data-screen-label="Work — AI Projects">
+    <section id="work-ai" className={classes.work} data-screen-label="Work — Agentic Projects">
       <div className={classes.workInner}>
         <div className={`${classes.sectionHead} ${classes.sectionHeadRuled}`}>
-          <h2 className={classes.sectionTitle}>AI Projects</h2>
-          <span className={`${classes.kicker} ${classes.kickerNavy}`}>01 — Building with AI</span>
+          <h2 className={classes.sectionTitle}>Agentic Projects</h2>
+          <span className={`${classes.kicker} ${classes.kickerNavy}`}>02 — Building with AI</span>
         </div>
 
         <button

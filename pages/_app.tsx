@@ -1,5 +1,6 @@
 import '@mantine/core/styles.css';
 import { MantineProvider } from '@mantine/core';
+import { Analytics } from '@vercel/analytics/next';
 import type { AppProps } from 'next/app';
 import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google';
 import Head from 'next/head';
@@ -41,6 +42,7 @@ export default function App({ Component, pageProps }: AppProps) {
           <Component {...pageProps} />
         </ProjectModalProvider>
       </div>
+      <Analytics />
     </MantineProvider>
   );
 }

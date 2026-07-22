@@ -12,10 +12,10 @@ export default function AiArchivePage() {
   return (
     <>
       <Head>
-        <title>AI Projects — Archive · Nehemias Luna</title>
+        <title>Agentic Projects — Archive · Nehemias Luna</title>
       </Head>
       <ArchiveLayout
-        title="AI Projects"
+        title="Agentic Projects"
         kicker="Archive — Building with AI"
         intro="Things I've built by vibe-coding with AI agents — a World Cup lineup builder, a daily player-guessing game, a dog-walking app, an interview simulator, a Hollywood agent game, and a model-comparison tool. Select any project to read the full story."
         backHref="/#work-ai"

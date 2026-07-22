@@ -27,7 +27,8 @@
     "@tabler/icons-react": "^3.35.0",
     "next": "16.2.6",
     "react": "19.2.6",
-    "react-dom": "19.2.6"
+    "react-dom": "19.2.6",
+    "rss-parser": "^3.13.0"
   },
   "devDependencies": {
     "@babel/core": "^7.28.4",

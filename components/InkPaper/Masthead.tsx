@@ -1,6 +1,7 @@
 import { useComputedColorScheme, useMantineColorScheme } from '@mantine/core';
 import { useHeadroom, useWindowScroll } from '@mantine/hooks';
 import Link from 'next/link';
+import { trackCategoryClick } from '../../lib/analytics/client';
 import classes from './InkPaper.module.css';
 
 const STICKY_BAR_OFFSET = 240;
@@ -21,7 +22,12 @@ function MastheadRow() {
         <Link href="/#writing" className={classes.navLink}>
           Writing
         </Link>
-        <Link href="/#about" className={classes.navLink}>
+        {/* Per the plan, `about` counts only the masthead link — not the section. */}
+        <Link
+          href="/#about"
+          className={classes.navLink}
+          onClick={() => trackCategoryClick('about')}
+        >
           About
         </Link>
         <button

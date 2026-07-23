@@ -1,4 +1,10 @@
+import { trackOutbound } from '../../lib/analytics/client';
 import classes from './InkPaper.module.css';
+
+const EMAIL_HREF = 'mailto:luna.nehemias@gmail.com';
+const LINKEDIN_HREF = 'https://www.linkedin.com/in/nmluna/';
+const GITHUB_HREF = 'https://github.com/nluna15';
+const SUBSTACK_HREF = 'https://substack.com/@nehemiasluna';
 
 export function SiteFooter() {
   return (
@@ -7,14 +13,31 @@ export function SiteFooter() {
       <div className={`${classes.ruleThick} ${classes.ruleGap}`} />
       <div className={classes.footerRow}>
         <div className={classes.footerLinks}>
-          <a href="mailto:luna.nehemias@gmail.com">Email</a>
-          <a href="https://www.linkedin.com/in/nmluna/" target="_blank" rel="noopener noreferrer">
+          <a href={EMAIL_HREF} onClick={() => trackOutbound('email', EMAIL_HREF)}>
+            Email
+          </a>
+          <a
+            href={LINKEDIN_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackOutbound('linkedin', LINKEDIN_HREF)}
+          >
             LinkedIn
           </a>
-          <a href="https://github.com/nluna15" target="_blank" rel="noopener noreferrer">
+          <a
+            href={GITHUB_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackOutbound('github', GITHUB_HREF)}
+          >
             GitHub
           </a>
-          <a href="https://substack.com/@nehemiasluna" target="_blank" rel="noopener noreferrer">
+          <a
+            href={SUBSTACK_HREF}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={() => trackOutbound('substack', SUBSTACK_HREF)}
+          >
             Substack
           </a>
         </div>

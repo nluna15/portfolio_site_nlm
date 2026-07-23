@@ -8,6 +8,7 @@ import {
   useState,
   type ReactNode,
 } from 'react';
+import { trackCategoryClick, trackOutbound } from '../../lib/analytics/client';
 import type { ProjectItem } from './data';
 import { Frame } from './Frame';
 import { TAG_TONE_CLASS } from './tagTone';
@@ -42,6 +43,9 @@ export function ProjectModalProvider({ children }: { children: ReactNode }) {
   const openProject = useCallback((project: ProjectItem) => {
     lastFocused.current = (document.activeElement as HTMLElement) ?? null;
     setActive(project);
+    // Every modal entry point routes through here, so this one call covers the
+    // homepage sections and all three archive pages.
+    trackCategoryClick(project.kind, project.id);
   }, []);
 
   const closeProject = useCallback(() => {
@@ -176,7 +180,11 @@ function ProjectModalView({ project, onClose, closeRef }: ProjectModalViewProps)
           )}
 
           {project.link && (
-            <a className={classes.modalLink} href={project.link.href}>
+            <a
+              className={classes.modalLink}
+              href={project.link.href}
+              onClick={() => trackOutbound(`project:${project.id}`, project.link!.href)}
+            >
               {project.link.label}
             </a>
           )}

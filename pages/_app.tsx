@@ -4,6 +4,7 @@ import { Analytics } from '@vercel/analytics/next';
 import type { AppProps } from 'next/app';
 import { Fraunces, IBM_Plex_Mono, IBM_Plex_Sans } from 'next/font/google';
 import Head from 'next/head';
+import { RouteAnalytics } from '../components/Analytics/RouteAnalytics';
 import { ProjectModalProvider } from '../components/InkPaper/ProjectModal';
 import { theme } from '../theme';
 
@@ -43,6 +44,7 @@ export default function App({ Component, pageProps }: AppProps) {
         </ProjectModalProvider>
       </div>
       <Analytics />
+      <RouteAnalytics />
     </MantineProvider>
   );
 }

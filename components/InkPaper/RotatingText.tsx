@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { trackOutbound } from '../../lib/analytics/client';
 import classes from './InkPaper.module.css';
 
 const SWITCH_INTERVAL_MS = 3000;
@@ -11,7 +12,12 @@ export interface RotatingItem {
 function ItemContent({ item }: { item: RotatingItem }) {
   if (item.url) {
     return (
-      <a href={item.url} target="_blank" rel="noopener noreferrer">
+      <a
+        href={item.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={() => trackOutbound('nowbar', item.url as string)}
+      >
         {item.label}
       </a>
     );

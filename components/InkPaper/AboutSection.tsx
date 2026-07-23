@@ -1,5 +1,8 @@
+import { trackOutbound } from "../../lib/analytics/client";
 import { Frame } from "./Frame";
 import classes from "./InkPaper.module.css";
+
+const EMAIL_HREF = "mailto:luna.nehemias@gmail.com";
 
 export function AboutSection() {
   return (
@@ -55,7 +58,13 @@ export function AboutSection() {
             management. I&apos;m prioritizing opportunities in sports technology
             firms and consumer first technology companies. If you&apos;re hiring
             — or just looking to chat —{" "}
-            <a href="mailto:luna.nehemias@gmail.com">I&apos;d love to talk</a>!
+            <a
+              href={EMAIL_HREF}
+              onClick={() => trackOutbound("email", EMAIL_HREF)}
+            >
+              I&apos;d love to talk
+            </a>
+            !
             Email me at luna (dot) nehemias (at) gmail (dot) com.
           </p>
           <div className={classes.credentials}>

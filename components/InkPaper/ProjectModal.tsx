@@ -179,14 +179,31 @@ function ProjectModalView({ project, onClose, closeRef }: ProjectModalViewProps)
             </ul>
           )}
 
-          {project.link && (
-            <a
-              className={classes.modalLink}
-              href={project.link.href}
-              onClick={() => trackOutbound(`project:${project.id}`, project.link!.href)}
-            >
-              {project.link.label}
-            </a>
+          {project.linksLead && (project.link || project.secondaryLink) && (
+            <p className={classes.modalText}>{project.linksLead}</p>
+          )}
+
+          {(project.link || project.secondaryLink) && (
+            <div className={classes.modalLinks}>
+              {project.link && (
+                <a
+                  className={classes.modalLink}
+                  href={project.link.href}
+                  onClick={() => trackOutbound(`project:${project.id}`, project.link!.href)}
+                >
+                  {project.link.label}
+                </a>
+              )}
+              {project.secondaryLink && (
+                <a
+                  className={classes.modalLink}
+                  href={project.secondaryLink.href}
+                  onClick={() => trackOutbound(`project:${project.id}`, project.secondaryLink!.href)}
+                >
+                  {project.secondaryLink.label}
+                </a>
+              )}
+            </div>
           )}
         </div>
       </div>

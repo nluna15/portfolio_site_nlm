@@ -1113,9 +1113,15 @@
   color: var(--rust);
 }
 
+.modalLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+}
+
 .modalLink {
   align-self: flex-start;
-  margin-top: 8px;
   padding: 10px 18px;
   border: 1px solid var(--ink);
   font-family: var(--mono);

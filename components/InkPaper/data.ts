@@ -41,6 +41,10 @@ export interface ProjectItem {
   summary: string[];
   highlights?: string[];
   link?: { label: string; href: string };
+  /** Optional lead sentence shown above the link button(s). */
+  linksLead?: string;
+  /** Optional second link button, rendered after `link`. */
+  secondaryLink?: { label: string; href: string };
 }
 
 export const AI_PROJECTS: ProjectItem[] = [
@@ -226,16 +230,18 @@ const CORPORATE_PROJECTS_SOURCE: ProjectItem[] = [
     meta: 'FEB 2026 — JUN 2026',
     role: 'AI Lead · Pro Bono',
     summary: [
-      'Prelude places high school seniors into corporate internships. Through Compass Pro Bono, I joined a four-month skill-based volunteering team as AI Lead while the org pushed to expand its Camden and Philadelphia footprint — ambitious growth targets, thin operating capacity, and a need for both sharper GTM clarity and faster day-to-day execution.',
-      'I built AI-enabled onboarding materials so the consulting team could get fluent on the client quickly, and shipped a custom subagent to raise Prelude\'s digital-marketing posting frequency. In parallel I advised on go-to-market and client-portfolio strategy — stakeholder interviews, market research, and competitor analysis folded into recommendations the team could hand off and use.',
-      'The engagement left Prelude with clearer expansion priorities for two markets and a practical AI assist for marketing ops — small surface area, high leverage for a lean nonprofit.',
+      'Prelude places high school seniors into corporate internships during the academic year. Through Compass Pro Bono, I joined a four-month skill-based volunteering team as their AI Lead. Our charter was advising Prelude on expansion tactics in Camden and Philadelphia — ambitious growth targets, thin operating capacity, and a need for both sharper GTM clarity and faster day-to-day execution.',
+      'I built AI-enabled onboarding materials so the consulting team could get fluent on the client quickly, and shipped a custom subagent to raise Prelude\'s digital-marketing posting frequency. In parallel, I advised on go-to-market and client-portfolio strategy — conducting stakeholder interviews, market research, and competitor analysis that folded into recommendations the team could hand off and use.',
+      'The engagement left Prelude with clearer expansion priorities for two markets and a practical AI assist for marketing ops.',
     ],
     highlights: [
       'Built AI onboarding resources so the team could get fluent on the client fast',
       "Stood up a custom subagent to raise Prelude's digital-marketing posting cadence",
       'Delivered GTM and client-portfolio recommendations from interviews, research, and competitive analysis',
     ],
+    linksLead: 'To learn more about Prelude or Compass Pro Bono, explore the links below.',
     link: { label: 'joinprelude.org ↗', href: 'https://joinprelude.org' },
+    secondaryLink: { label: 'compassprobono.org ↗', href: 'https://compassprobono.org' },
   },
   {
     id: 'creator-itineraries',
@@ -254,14 +260,14 @@ const CORPORATE_PROJECTS_SOURCE: ProjectItem[] = [
     meta: '2025',
     role: 'Product Lead · Growth',
     summary: [
-      'At a large travel marketplace, the influencer affiliate program only let creators share hotels. That created a value mismatch: creators couldn\'t show the breadth of how they actually travel, users landed on incomplete trip plans, engagement sagged, and creators churned. Leadership asked whether multi-inventory itineraries — restaurants, landmarks, activities alongside stays — could convert travelers and keep creators active.',
-      'I led a team of ten across design, engineering, and marketing to ship a proof of concept for ten pilot creators. We built a three-day itinerary experience with hotels, restaurants, activities, and attractions — dynamic maps, chronological guides, and rich UGC — a first for the affiliate platform. I partnered with research on a two-sided usability study, restructured database and API schemas for new inventory types and media, and owned the manual data pipeline: survey collection, JSON vetting, and PR tracking with engineering.',
-      'The pilot ran at roughly $1M GBV per year; across all creators it modeled to ~$23M GBV and ~$2.3M to the bottom line. Participation blew past targets, session length nearly doubled, engagement (share, save, click-through) lifted ~10%, and the work surfaced a new enterprise-built-itinerary revenue path.',
+      'At a large travel marketplace, the influencer affiliate platform only let creators share hotels. That created a value mismatch: creators couldn\'t show the breadth of how they actually travel, users landed on incomplete trip plans, engagement sagged, and creators churned. Leadership asked whether multi-inventory itineraries — restaurants, landmarks, activities alongside stays — could convert travelers.',
+      'I led a team of ten across design, engineering, and marketing to ship a proof of concept for fifteen pilot creators. We built a three-day itinerary experience with hotels, restaurants, activities, and attractions — dynamic maps, chronological guides, and rich UGC — a first for the affiliate platform. I partnered with research on a two-sided usability study, restructured database and API schemas for new inventory types and media, and owned the manual data pipeline: survey collection, JSON vetting, and PR tracking with engineering.',
+      'The pilot ran at roughly $1M GBV per year; across all creators it modeled to ~$23M GBV and ~$2.3M to the bottom line. Participation blew past targets, user session length nearly doubled, engagement (share, save, click-through) lifted ~10%, and the work surfaced a new revenue path.',
     ],
     highlights: [
+      'Proven gains in team KPIs, including increases in user engagement',
       'Pilot itineraries at ~$1M GBV/year; full-creator scale modeled to ~$23M GBV / ~$2.3M bottom line',
-      'Blew past participation targets and opened an enterprise-built-itinerary revenue opportunity',
-      'Nearly doubled session length; lifted share/save/click-through ~10%',
+      'Exceeded participation targets and opened an enterprise-built-itinerary revenue opportunity',
     ],
   },
   {
@@ -269,7 +275,7 @@ const CORPORATE_PROJECTS_SOURCE: ProjectItem[] = [
     kind: 'corporate',
     title: 'When Not to Build a Social Graph',
     blurb:
-      'Retention was flat on a large travel platform, and “add social” was the easy answer. I ran the full discovery — architecture, experiments, investment model — and made the call to defer when the signal didn\'t justify the cost.',
+      'Retention was flat on a large travel platform, and “add social” was the easy answer. I ran the full discovery — architecture, experiments, investment model — and learned the most valuable lesson of building from zero to one.',
     image: '/social-graph.webp',
     imageAlt: 'Winding mountain road symbolizing the exploratory path into social networks',
     tags: [
@@ -281,13 +287,13 @@ const CORPORATE_PROJECTS_SOURCE: ProjectItem[] = [
     meta: '2024',
     role: 'Full-Stack PM · 0 → 1',
     summary: [
-      'Travel platforms often chase retention with social features when MAU/DAU and repeat visits stall. On a large travel marketplace, I led a multi-quarter discovery to answer a harder question: would a social graph — peer connections, shared content, enriched profiles — actually move retention enough to justify building social infrastructure at platform scale?',
-      'Scope covered graph architecture, profile redesign, connection flows, and peer-to-peer sharing, with alignment across product, engineering, design, architecture, and legal. I ran it end-to-end as a full-stack PM: shaping architecture with a principal engineer, defining the full connection lifecycle (add, request, approve, deny, block), creating mockups, launching an A/B test on a native share sheet, and building sensitivity analyses on reach, KPI upside, and scaling cost. The north star was decision-quality clarity, not premature shipping.',
-      'When the experiments showed weak signal relative to investment, I recommended deferring. The work still shaped adjacent roadmaps (accounts, data architecture, affiliates) and left a reusable architectural blueprint — so the “no” was documented, not forgotten.',
+      'Travel platforms often chase retention strategies when repeat visits stall, and the mandate was to build quickly. I ran it full-stack: architecture with a principal engineer, the full social connection lifecycle (add, request, approve, deny, block), profile and connection-flow mockups, and A/B tests on supporting pieces — aligned across product, eng, design, architecture, and legal.',
+      'We hit alpha on time and in spec, but support collapsed on the investment case when we entered a precarious environment in the travel industry. The social graph\'s high startup costs made its investment profile impossible to defend, regardless of build quality — shipping on time and in spec isn\'t the same as having a durable investment case.',
+      'The day I shared the news with the team was one of the hardest in my career, but it sharpened how I\'d approach the next one. The lesson I carry into ambiguous 0→1 work now: understand where your most critical assumptions lie, then build the quickest means to collect a signal that validates whether the strategy could deliver meaningful ROI. While I didn\'t get to ship our work to consumers, the growth from the experience shaped each product thereafter.',
     ],
     highlights: [
-      'Gave leadership the clarity to defer — weak retention signal vs. platform-scale investment',
-      'Modeled reach, KPI upside, and scaling needs so the tradeoff was explicit',
+      'Delivered a cross-functional, full-stack build — architecture, lifecycle, mockups, live A/B test — to alpha, on time and in spec',
+      'Used sensitivity analyses and a data deep-dive to defer further investment across the project portfolio',
       'Left a reusable architectural blueprint and shaped adjacent roadmaps',
     ],
   },
@@ -310,12 +316,12 @@ const CORPORATE_PROJECTS_SOURCE: ProjectItem[] = [
     summary: [
       'In early 2023, leadership at a large travel marketplace faced its first critical Generative AI investment call: put AI into the core shopping experience, or risk being leapfrogged by AI-first players and the model providers themselves. I was asked to lead a team that could answer three questions in a finite window — would users adopt AI-assisted discovery over traditional search, would AI raise booking likelihood, and where did AI-powered experiences still fail users?',
       'I framed the work as a controlled product to learn from, not a revenue driver. We reused existing chat infrastructure and UX to reach market fast, ran usability research to surface discoverability and friction, and tracked sessions, conversation length, intent, and repeat rate. Partnering with ML and Legal, I helped shape responses and guardrails to reduce hallucinations while upskilling product, eng, design, and ML on GenAI foundations, prompting, and trust & safety.',
-      "Findings steered budget toward AI in the shopping funnel and anchored a market-positioning campaign that reached 100M+ impressions — the company's first serious GenAI bet, documented as learning, not hype.",
+      "Findings steered budget toward AI in the shopping funnel and anchored a market-positioning campaign that reached 100M+ impressions — the company's first serious GenAI bet was a major success in informing our future AI investments.",
     ],
     highlights: [
-      'Findings steered budget toward AI features in the shopping funnel',
+      'Findings steered budget toward AI features throughout the shopping and post-booking funnels',
       'Anchored a positioning campaign that reached 100M+ impressions',
-      'Upskilled product, eng, design, and ML on GenAI, prompting, and trust & safety',
+      'Upskilled product and design on GenAI, prompting, and trust & safety',
     ],
   },
   {
@@ -323,9 +329,9 @@ const CORPORATE_PROJECTS_SOURCE: ProjectItem[] = [
     kind: 'corporate',
     title: 'Making Invoicing Observable & Scalable',
     blurb:
-      'AWS marketing ops was drowning in a manual Salesforce invoicing pipeline — no visibility, rising delinquencies. I built measurement, fixed the friction points, and cut delinquent payments ~30% while volume grew ~40%.',
+      'A major cloud computing provider\'s marketing ops was drowning in a manual Salesforce invoicing pipeline — no visibility, rising delinquencies. I built measurement, fixed the friction points, and cut delinquent payments ~30% while volume grew ~40%.',
     image: '/invoicing-observability.webp',
-    imageAlt: 'AWS logo above a crowd at an AWS conference',
+    imageAlt: 'Rows of server racks in a cloud data center',
     tags: [
       { label: 'KPI Development', tone: 'moss' },
       { label: 'User Research', tone: 'plum' },
@@ -333,9 +339,9 @@ const CORPORATE_PROJECTS_SOURCE: ProjectItem[] = [
     meta: '2019',
     role: 'PM · Strategy & Ops',
     summary: [
-      'AWS was scaling fast enough to break internal systems. One of them was marketing invoicing: marketers submitted invoices through Salesforce against budgets, payment status, and delinquency tracking. The process was manual, error-prone, and blind — fires only became visible after they started. As volume rose, submission errors cascaded into bad budget tracking, delayed payments, and delinquent accounts.',
+      'A notable cloud computing provider was scaling fast enough to break internal systems. One of them was marketing invoicing: marketers submitted invoices through Salesforce against budgets, payment status, and delinquency tracking. The process was manual, error-prone, and blind — fires only became visible after they started. As volume rose, submission errors cascaded into bad budget tracking, delayed payments, and delinquent accounts.',
       'Operating as a solo driver with a Salesforce engineer on implementation, I owned diagnosis, strategy, experimentation, and enablement. I built a measurement layer by error type, frequency, and origin; stood up KPI dashboards for volume, delinquency, and error rate; and researched how marketers actually worked. The key insight: training lived on wiki pages no one read. The fix was dual — UI changes that reduced Salesforce submission friction, plus step-by-step video walkthroughs that matched how people learned.',
-      'Delinquent payments fell ~30% by cutting errors at the source. The pipeline absorbed a ~40% volume increase without breaking, and the team kept a reusable playbook: observability, KPIs, and video-based enablement.',
+      'Delinquent payments fell ~30% by cutting errors at the source. The pipeline absorbed a ~40% volume increase without breaking, and the team kept a reusable playbook: observability, KPIs, and video-based enablement. When I left for my MBA, the role\'s job description was shaped around the strategies and framework I had pioneered.',
     ],
     highlights: [
       'Cut delinquent payments ~30% by fixing submission errors at the source',
